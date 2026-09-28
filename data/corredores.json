@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "id": "juan-perez",
+    "nombre": "Juan Pérez",
+    "descripcion": "Empezó a correr en 2023 para despejarse después del trabajo y ya no paró.",
+    "fotos": ["img/corredores/juan-perez-1.jpg", "img/corredores/juan-perez-2.jpg"],
+    "carreras": [
+      { "nombre": "10K Buenos Aires", "anio": 2025, "distancia": "10K" },
+      { "nombre": "Media Maratón de Rosario", "anio": 2026, "distancia": "21K" }
+    ]
+  },
+  {
+    "id": "maria-gomez",
+    "nombre": "María Gómez",
+    "descripcion": "Llegó por las clases de funcional y se sumó al running team al mes.",
+    "fotos": ["img/corredores/maria-gomez-1.jpg"],
+    "carreras": [
+      { "nombre": "5K Nocturna", "anio": 2026, "distancia": "5K" }
+    ]
+  },
+  {
+    "id": "lucas-fernandez",
+    "nombre": "Lucas Fernández",
+    "descripcion": "Preparando su primera maratón.",
+    "fotos": [],
+    "carreras": []
+  }
+]

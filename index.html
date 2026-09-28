@@ -3,10 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entrenamiento DZ</title>
+  <title>Entrenamiento DZ | Running team y funcional</title>
+  <meta name="description" content="Entrenamiento DZ: running team y clases de funcional. Conocé al profesor, al equipo y dónde entrenamos.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-  <h1>Entrenamiento DZ</h1>
-  <p>Sitio en construcción.</p>
+
+  <a class="saltar" href="#contenido">Ir al contenido</a>
+
+  <header class="encabezado">
+    <a class="marca" href="#inicio">Entrenamiento DZ</a>
+
+    <nav class="menu" aria-label="Principal">
+      <ul>
+        <li><a href="#profesor">El profe</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#lugar">Dónde entrenamos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+
+    <!-- Portada: lo primero que se ve al entrar -->
+    <section id="inicio" class="portada">
+      <h1>Entrenamiento DZ</h1>
+      <p>Running team y clases de funcional. Entrenamos juntos, de 5K a maratón.</p>
+      <a class="boton" href="#contacto">Sumate al equipo</a>
+    </section>
+
+    <!-- 1. Presentación del profesor -->
+    <section id="profesor" class="seccion">
+      <h2>El profe</h2>
+      <img src="img/profesor/profesor.jpg" alt="Foto del profesor" width="600" height="600">
+      <p>Presentación del profesor: quién es, su experiencia y cómo trabaja con el equipo.</p>
+    </section>
+
+    <!-- 2. Equipo: la grilla la arma js/main.js con data/corredores.json -->
+    <section id="equipo" class="seccion">
+      <h2>El equipo</h2>
+      <p>Tocá una foto para conocer a cada corredor.</p>
+      <div id="grilla" class="grilla"></div>
+    </section>
+
+    <!-- 3. Lugar de encuentro -->
+    <section id="lugar" class="seccion">
+      <h2>Dónde entrenamos</h2>
+
+      <div class="lugares">
+        <article class="lugar">
+          <h3>Running</h3>
+          <p>Nombre del lugar y dirección.</p>
+          <p>Días y horarios.</p>
+          <a class="boton" href="#" target="_blank" rel="noopener">Ver en Google Maps</a>
+        </article>
+
+        <article class="lugar">
+          <h3>Funcional</h3>
+          <p>Nombre del lugar y dirección.</p>
+          <p>Días y horarios.</p>
+          <a class="boton" href="#" target="_blank" rel="noopener">Ver en Google Maps</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. Contacto y redes -->
+    <section id="contacto" class="seccion">
+      <h2>Contacto</h2>
+      <p>Escribinos para sumarte o hacer una consulta.</p>
+      <ul class="redes">
+        <!-- WhatsApp: https://wa.me/ seguido del número con código de país, sin + ni espacios -->
+        <li><a href="#" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p>© <span id="anio"></span> Entrenamiento DZ</p>
+  </footer>
+
 </body>
 </html>

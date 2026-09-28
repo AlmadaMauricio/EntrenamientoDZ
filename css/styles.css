@@ -1,0 +1,350 @@
+/* Tipografía: Barlow en peso extra bold acompaña las letras gruesas del logo */
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&display=swap");
+
+/* =========================================
+   Variables: cambiando esto se cambia la identidad del sitio
+   ========================================= */
+:root {
+  /* Colores sacados del logo */
+  --color-primario: #2567C5;   /* azul del fondo del logo: portada, iniciales, links */
+  --color-sobre-primario: #FFFFFF;
+  --color-noche: #002265;      /* azul oscuro del contorno del ancla: pie */
+  --color-acento: #36B49C;     /* verde de la soga: botones y detalles */
+  --color-sobre-acento: #0F2448;
+
+  --color-fondo: #FFFFFF;
+  --color-fondo-alterno: #EEF4FB;
+  --color-texto: #0F2448;
+  --color-texto-suave: #4A5A75;
+  --color-linea: #D7E2F0;
+
+  --fuente-titulos: "Barlow", system-ui, sans-serif;
+  --fuente-texto: "Barlow", system-ui, sans-serif;
+
+  --ancho-max: 68rem;
+  --espacio: 1.25rem;
+  --radio: 6px;
+
+  /* Margen lateral: contenido centrado sin necesitar contenedores extra */
+  --margen-lateral: max(var(--espacio), calc((100% - var(--ancho-max)) / 2));
+}
+
+/* =========================================
+   Base
+   ========================================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+}
+h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
+h2 { font-size: clamp(2rem, 7vw, 3rem); }
+h3 { font-size: 1.5rem; }
+
+p { margin: 0 0 1em; max-width: 65ch; }
+
+a { color: var(--color-primario); }
+
+:focus-visible {
+  outline: 3px solid var(--color-primario);
+  outline-offset: 3px;
+}
+
+/* Link "Ir al contenido": oculto hasta que se enfoca con teclado */
+.saltar {
+  position: absolute;
+  left: var(--espacio);
+  top: -100%;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--color-acento);
+  color: var(--color-sobre-acento);
+  font-weight: 700;
+}
+.saltar:focus { top: var(--espacio); }
+
+/* =========================================
+   Botones
+   ========================================= */
+.boton {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border-radius: var(--radio);
+  background: var(--color-acento);
+  color: var(--color-sobre-acento);
+  font-weight: 700;
+  text-decoration: none;
+}
+.boton:hover { filter: brightness(0.94); }
+
+/* =========================================
+   Encabezado y menú
+   ========================================= */
+.encabezado {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 0.75rem var(--margen-lateral) 0;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  border-bottom: 1px solid var(--color-linea);
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--fuente-titulos);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: inherit;
+  text-decoration: none;
+}
+.marca img { border-radius: 50%; }
+
+/* En celular el menú va en una fila que se puede deslizar */
+.menu ul {
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.menu a {
+  display: block;
+  padding: 0.75rem 0;
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+.menu a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-acento);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+/* =========================================
+   Portada
+   ========================================= */
+/* El fondo es el mismo azul del logo, así la imagen se funde con la portada */
+.portada {
+  padding: 2rem var(--margen-lateral) 3.5rem;
+  background: var(--color-primario);
+  color: var(--color-sobre-primario);
+  text-align: center;
+  border-bottom: 6px solid var(--color-acento);
+}
+.portada-logo { margin: 0; }
+.portada-logo img {
+  width: min(20rem, 85%);
+  margin: 0 auto;
+  /* Difumina los bordes para que no se note el recuadro de la imagen */
+  -webkit-mask-image: radial-gradient(closest-side, #000 85%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 85%, transparent 100%);
+}
+.portada .portada-lema {
+  margin: 0.5rem auto 0.75rem;
+  font-family: var(--fuente-titulos);
+  font-size: clamp(1.75rem, 7vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+.portada p {
+  margin-inline: auto;
+  font-size: 1.2rem;
+}
+.portada .boton { margin-top: 0.75rem; }
+
+/* =========================================
+   Secciones
+   ========================================= */
+.seccion {
+  padding: 4rem var(--margen-lateral);
+  scroll-margin-top: 6.5rem; /* que el encabezado fijo no tape el título */
+}
+#equipo { background: var(--color-fondo-alterno); }
+
+#profesor img {
+  width: 100%;
+  max-width: 22rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radio);
+}
+
+/* Grilla de corredores: 2 columnas en celular, más en pantallas grandes */
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 1rem;
+  margin-top: 1.5rem;
+}
+.grilla > p { grid-column: 1 / -1; }
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+}
+.tarjeta img,
+.tarjeta .iniciales {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radio);
+}
+.tarjeta-nombre { font-weight: 600; }
+.tarjeta:hover .tarjeta-nombre { text-decoration: underline; }
+
+/* Reemplazo de foto cuando no hay o no carga */
+.iniciales {
+  display: grid;
+  place-items: center;
+  background: var(--color-primario);
+  color: var(--color-sobre-primario);
+  font-family: var(--fuente-titulos);
+  font-size: clamp(2rem, 9vw, 3rem);
+  font-weight: 700;
+}
+
+/* Lugares: uno debajo del otro en celular, lado a lado en pantallas grandes */
+.lugares {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+}
+.lugar {
+  padding-left: 1.25rem;
+  border-left: 4px solid var(--color-acento);
+}
+
+/* Redes y contacto */
+.redes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.redes a {
+  display: inline-block;
+  padding: 0.7rem 1.3rem;
+  border: 2px solid var(--color-primario);
+  border-radius: var(--radio);
+  font-weight: 700;
+  text-decoration: none;
+}
+.redes a:hover {
+  background: var(--color-primario);
+  color: var(--color-sobre-primario);
+}
+
+/* =========================================
+   Pie
+   ========================================= */
+.pie {
+  padding: 2rem var(--margen-lateral);
+  background: var(--color-noche);
+  color: #DCE8F7;
+}
+.pie p { margin: 0; }
+
+/* =========================================
+   Página de perfil
+   ========================================= */
+.volver {
+  display: inline-block;
+  margin: 1.5rem var(--margen-lateral) 0;
+  font-weight: 600;
+}
+
+.perfil { padding: 1.5rem var(--margen-lateral) 4rem; }
+
+.perfil-foto {
+  width: 100%;
+  max-width: 22rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radio);
+}
+.perfil-foto.iniciales { font-size: 5rem; }
+
+.perfil-descripcion { font-size: 1.15rem; }
+
+.perfil-carreras,
+.perfil-galeria { margin-top: 2.5rem; }
+.perfil-carreras ul { padding-left: 1.2rem; }
+.perfil-carreras li { margin-bottom: 0.4rem; }
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: 0.75rem;
+}
+.galeria img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radio);
+}
+
+/* =========================================
+   Pantallas más grandes
+   ========================================= */
+@media (min-width: 40rem) {
+  .grilla { grid-template-columns: repeat(3, 1fr); }
+  .lugares { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 48rem) {
+  /* Marca a la izquierda y menú a la derecha, en una sola fila */
+  .encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0;
+  }
+  .menu a { padding: 1.25rem 0; }
+
+  /* Portada: logo a la izquierda y texto a la derecha */
+  .portada {
+    display: grid;
+    grid-template-columns: minmax(16rem, 24rem) 1fr;
+    align-items: center;
+    gap: 3rem;
+    padding-block: 3rem 4rem;
+    text-align: left;
+  }
+  .portada-logo img { width: 100%; }
+  .portada p,
+  .portada .portada-lema { margin-inline: 0; }
+  .seccion { scroll-margin-top: 4.5rem; }
+}
+
+@media (min-width: 60rem) {
+  .grilla { grid-template-columns: repeat(4, 1fr); }
+}

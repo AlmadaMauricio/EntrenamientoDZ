@@ -17,6 +17,7 @@
   --color-texto: #0F2448;
   --color-texto-suave: #4A5A75;
   --color-linea: #D7E2F0;
+  --color-whatsapp: #25D366;   /* verde de WhatsApp: botón flotante */
 
   --fuente-titulos: "Barlow", system-ui, sans-serif;
   --fuente-texto: "Barlow", system-ui, sans-serif;
@@ -250,7 +251,9 @@ a { color: var(--color-primario); }
   list-style: none;
 }
 .redes a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.7rem 1.3rem;
   border: 2px solid var(--color-primario);
   border-radius: var(--radio);
@@ -261,6 +264,25 @@ a { color: var(--color-primario); }
   background: var(--color-primario);
   color: var(--color-sobre-primario);
 }
+.redes svg { width: 1.3rem; height: 1.3rem; }
+
+/* Botón flotante de WhatsApp: siempre a mano en el celular */
+.whatsapp-flotante {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--color-whatsapp);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.whatsapp-flotante svg { width: 1.75rem; height: 1.75rem; }
+.whatsapp-flotante:hover { filter: brightness(0.94); }
 
 /* =========================================
    Pie

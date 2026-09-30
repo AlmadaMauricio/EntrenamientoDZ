@@ -209,10 +209,16 @@ a { color: var(--color-primario); }
   border-bottom-color: var(--color-acento);
 }
 
-.foto-grupal {
-  width: 100%;
-  max-width: 48rem;
+.fotos-grupales {
+  display: grid;
+  gap: 1rem;
+  max-width: 60rem;
   margin-bottom: 1.5rem;
+}
+.fotos-grupales img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   border-radius: var(--radio);
 }
 
@@ -370,6 +376,7 @@ a { color: var(--color-primario); }
 @media (min-width: 40rem) {
   .grilla { grid-template-columns: repeat(3, 1fr); }
   .lugares { grid-template-columns: 1fr 1fr; }
+  .fotos-grupales { grid-template-columns: 1fr 1fr; }
 }
 
 @media (min-width: 48rem) {

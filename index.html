@@ -53,10 +53,24 @@
     </section>
 
     <!-- 2. Equipo: la grilla la arma js/main.js con data/corredores.json -->
+        <!-- 2. Equipo: pestañas Running (grilla desde data/corredores.json) y Funcional (foto grupal) -->
     <section id="equipo" class="seccion">
       <h2>El equipo</h2>
-      <p>Tocá una foto para conocer a cada corredor.</p>
-      <div id="grilla" class="grilla"></div>
+
+      <div class="pestanas" role="tablist" aria-label="Equipos">
+        <button type="button" role="tab" id="tab-running" aria-controls="panel-running" aria-selected="true">Running</button>
+        <button type="button" role="tab" id="tab-funcional" aria-controls="panel-funcional" aria-selected="false" tabindex="-1">Funcional</button>
+      </div>
+
+      <div id="panel-running" role="tabpanel" aria-labelledby="tab-running">
+        <p>Tocá una foto para conocer a cada corredor.</p>
+        <div id="grilla" class="grilla"></div>
+      </div>
+
+      <div id="panel-funcional" role="tabpanel" aria-labelledby="tab-funcional" hidden>
+        <img class="foto-grupal" src="img/funcional/grupo.jpg" alt="Grupo de funcional de Entrenamiento DZ" width="1200" height="800">
+        <p>Presentación del grupo de funcional: cómo son las clases, para quién son y cómo sumarse.</p>
+      </div>
     </section>
 
     <!-- 3. Lugar de encuentro -->

@@ -72,3 +72,38 @@ function crearIniciales(nombre) {
     .toUpperCase();
   return iniciales;
 }
+// Pestañas del equipo: Running / Funcional
+(function () {
+  const tabs = document.querySelectorAll('.pestanas [role="tab"]');
+  if (!tabs.length) return;
+
+  function activar(tab, enfocar) {
+    tabs.forEach(function (t) {
+      const activa = t === tab;
+      t.setAttribute('aria-selected', activa);
+      t.tabIndex = activa ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !activa;
+    });
+    if (enfocar) tab.focus();
+  }
+
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { activar(tab); });
+    // Flechas izquierda/derecha para moverse entre pestañas con teclado
+    tab.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      const paso = e.key === 'ArrowRight' ? 1 : -1;
+      activar(tabs[(i + paso + tabs.length) % tabs.length], true);
+    });
+  });
+
+  // Links directos: #equipo-running o #equipo-funcional abren esa pestaña
+  function desdeHash() {
+    const m = location.hash.match(/^#equipo-(running|funcional)$/);
+    if (!m) return;
+    activar(document.getElementById('tab-' + m[1]));
+    document.getElementById('equipo').scrollIntoView();
+  }
+  desdeHash();
+  window.addEventListener('hashchange', desdeHash);
+})();

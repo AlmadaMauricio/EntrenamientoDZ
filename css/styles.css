@@ -185,6 +185,36 @@ a { color: var(--color-primario); }
   scroll-margin-top: 6.5rem; /* que el encabezado fijo no tape el título */
 }
 #equipo { background: var(--color-fondo-alterno); }
+/* Pestañas del equipo */
+.pestanas {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  border-bottom: 2px solid var(--color-linea);
+}
+.pestanas button {
+  margin-bottom: -2px;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-bottom: 4px solid transparent;
+  background: none;
+  color: var(--color-texto-suave);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.pestanas button:hover { color: var(--color-primario); }
+.pestanas button[aria-selected="true"] {
+  color: var(--color-primario);
+  border-bottom-color: var(--color-acento);
+}
+
+.foto-grupal {
+  width: 100%;
+  max-width: 48rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radio);
+}
 
 #profesor img {
   width: 100%;
